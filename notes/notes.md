@@ -34,7 +34,7 @@ Structuring code
 - define functions
 - a main() function if you use one
 - an if __name__ clause if you want one
-These rules mean no code is in global scope.s
+These rules mean no code is in global scope.
 
 ## Python Packages
 A good structure is:
@@ -70,3 +70,19 @@ You can even select a branch by appending @branchname to the github link, or @co
 Can write executables with python. Need to run chmod +x <filename>
 
 Youtube video with a physical demo of the git repository: https://www.youtube.com/watch?v=1ffBJ4sVUb4
+
+## Git things
+Making a new branch
+```bash
+git branch feature-1
+git checkout feature-1
+```
+or
+```bash
+git checkout -b feature-1
+```
+Always want to merge changes into main. So checkout to main then 
+```bash
+git merge feature-1
+```
+To use pull requests, commit things on a branch, push then go to github website and make a pull request.
