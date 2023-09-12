@@ -6,7 +6,7 @@
 from math import cos, pi
 from random import uniform
 
-NSRC = 1_000_000
+NSRC = 1_000
 
 # from wikipedia
 RA = '00:42:44.3'
