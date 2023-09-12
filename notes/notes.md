@@ -85,4 +85,11 @@ Always want to merge changes into main. So checkout to main then
 ```bash
 git merge feature-1
 ```
-To use pull requests, commit things on a branch, push then go to github website and make a pull request.
+To use pull requests, commit things on a branch, push the branch then go to github website and make a pull request.
+
+To delete a branch
+```bash
+git branch -d <branch name>
+```
+
+Lowercase ```-d``` won't force it and will warn you if there's errors. Upper case ```-D``` will force the delete.
