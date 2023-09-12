@@ -93,3 +93,9 @@ git branch -d <branch name>
 ```
 
 Lowercase ```-d``` won't force it and will warn you if there's errors. Upper case ```-D``` will force the delete.
+
+A pretty way of looking at the git history/log is 
+```bash
+git log --graph --decorate --oneline
+```
+Can also get extensions like git graph instead.
