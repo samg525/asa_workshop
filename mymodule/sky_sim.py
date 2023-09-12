@@ -63,19 +63,6 @@ def get_radec():
     return ra,dec
 
 
-
-def generate_sky_pos():
-
-    ra, dec = get_radec()
-    # make 1000 stars within 1 degree of Andromeda
-    ras = []
-    decs = []
-    for i in range(NSRC):
-        ras.append(ra + uniform(-1,1))
-        decs.append(dec + uniform(-1,1))
-
-    return ras, decs, ra, dec
-
 def make_stars(ra, dec, nsrc=NSRC):
     """
     Generate NSRC stars within 1 degree of the given ra/dec
