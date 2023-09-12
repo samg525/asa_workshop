@@ -6,6 +6,8 @@
 from math import cos, pi
 from random import uniform
 
+NSRC = 1_000_000
+
 def clip_to_radius(ras, decs, ref_ra, ref_dec, radius):
     """
     Crop an input list of positions so that they lie within radius of
@@ -45,8 +47,6 @@ def generate_sky_pos():
     ra = 15*(int(h)+int(m)/60+float(s)/3600)
     ra = ra/cos(dec*pi/180)
 
-    NSRC = 1_000_000
-
     # make 1000 stars within 1 degree of Andromeda
     ras = []
     decs = []
@@ -54,6 +54,12 @@ def generate_sky_pos():
         ras.append(ra + uniform(-1,1))
         decs.append(dec + uniform(-1,1))
 
+    return ras, decs
+
+    
+
+def main():
+    ras, decs = generate_sky_pos()
     ras, decs = clip_to_radius(ras,decs)
 
     # now write these to a csv file for use by my other program
@@ -61,4 +67,3 @@ def generate_sky_pos():
         print("id,ra,dec", file=f)
         for i in range(NSRC):
             print(f"{i:07d}, {ras[i]:12f}, {decs[i]:12f}", file=f)
-
