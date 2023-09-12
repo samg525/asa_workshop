@@ -32,6 +32,7 @@ setup(
     python_requires='>=3.8',
     entry_points={
         'console_scripts':[
-            'hello_world=mymodule.submod1:hello_world'
+            'hello_world=mymodule.submod1:hello_world',
+            'sky_sim=mymodule.sky_sim:main',
             ]}
 )

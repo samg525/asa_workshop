@@ -8,6 +8,10 @@ from random import uniform
 
 NSRC = 1_000_000
 
+# from wikipedia
+RA = '00:42:44.3'
+DEC = '41:16:09'
+
 def clip_to_radius(ras, decs, ref_ra, ref_dec, radius):
     """
     Crop an input list of positions so that they lie within radius of
@@ -35,9 +39,6 @@ def clip_to_radius(ras, decs, ref_ra, ref_dec, radius):
     return ra_out, dec_out
 
 def generate_sky_pos():
-    # from wikipedia
-    RA = '00:42:44.3'
-    DEC = '41:16:09'
 
     # Should do this with astropy
     d, m, s = DEC.split(':')
@@ -54,16 +55,16 @@ def generate_sky_pos():
         ras.append(ra + uniform(-1,1))
         decs.append(dec + uniform(-1,1))
 
-    return ras, decs
+    return ras, decs, ra, dec
 
     
 
 def main():
-    ras, decs = generate_sky_pos()
-    ras, decs = clip_to_radius(ras,decs)
+    ras, decs, ra, dec = generate_sky_pos()
+    ras, decs = clip_to_radius(ras,decs, ra, dec, 1)
 
     # now write these to a csv file for use by my other program
     with open('catalog.csv','w') as f:
         print("id,ra,dec", file=f)
-        for i in range(NSRC):
+        for i in range(len(ras)):
             print(f"{i:07d}, {ras[i]:12f}, {decs[i]:12f}", file=f)
