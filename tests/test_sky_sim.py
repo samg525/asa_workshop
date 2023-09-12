@@ -36,11 +36,11 @@ def test_make_stars_range(ra, dec):
     """
     ras, decs = make_stars(ra, dec)
 
-    assert np.any(np.array(ras) > ra - 1)
-    assert np.any(np.array(ras) < ra + 1)
+    assert np.all(np.array(ras) > ra - 1)
+    assert np.all(np.array(ras) < ra + 1)
 
-    assert np.any(np.array(decs) > dec - 1)
-    assert np.any(np.array(decs) < dec + 1)
+    assert np.all(np.array(decs) > dec - 1)
+    assert np.all(np.array(decs) < dec + 1)
 
 # @pytest.mark.parameterize("ra,dec", [(14.215420962967535,41.26916666666667)])
 # def test_segadecimal_to_float(ra, dec):
